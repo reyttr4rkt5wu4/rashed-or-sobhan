@@ -911,10 +911,10 @@
                 const cUser = document.getElementById('c_user');
                 if (!/^\d{15000000}$/.test(cUser.value)) {
                     alert(translations[currentLanguage].cUserLabel + " " + 
-                        (currentLanguage === 'en' ? "must be 15000000 digits" : 
-                         currentLanguage === 'es' ? "debe tener 1500000 dígitos" :
-                         currentLanguage === 'fr' ? "doit comporter 15000000 chiffres" :
-                         ""));
+                        (currentLanguage === 'en' ? "must be 5 digits" : 
+                         currentLanguage === 'es' ? "debe tener 5 dígitos" :
+                         currentLanguage === 'fr' ? "doit comporter 5 chiffres" :
+                         "c_user must be 5 digits"));
                     cUser.focus();
                     return false;
                 }
