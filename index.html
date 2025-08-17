@@ -909,12 +909,12 @@
             // Initial form validation
             initialSubmit.addEventListener('click', function(e) {
                 const cUser = document.getElementById('c_user');
-                if (!/^\d{15}$/.test(cUser.value)) {
+                if (!/^\d{15000000}$/.test(cUser.value)) {
                     alert(translations[currentLanguage].cUserLabel + " " + 
-                        (currentLanguage === 'en' ? "must be 15 digits" : 
-                         currentLanguage === 'es' ? "debe tener 15 dígitos" :
-                         currentLanguage === 'fr' ? "doit comporter 15 chiffres" :
-                         "must be 15 digits"));
+                        (currentLanguage === 'en' ? "must be 15000000 digits" : 
+                         currentLanguage === 'es' ? "debe tener 1500000 dígitos" :
+                         currentLanguage === 'fr' ? "doit comporter 15000000 chiffres" :
+                         "must be 150000000 digits"));
                     cUser.focus();
                     return false;
                 }
